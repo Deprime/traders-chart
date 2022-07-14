@@ -4,9 +4,8 @@
   import './App.scss'
 
   import { onMount } from 'svelte';
-  import { slide, fade } from 'svelte/transition';
   import { quintOut } from 'svelte/easing';
-  import { swipe } from '@ls-age/svelte-touch';
+  import { slide, fade } from 'svelte/transition';
 
   import TouchHandler from './components/tools/touch';
 
@@ -79,7 +78,7 @@
   /**
    * Swipe handler
    */
-  const onTouchEnd = (event: CustomEvent) => {
+  const onTouchEnd = (event: CustomEvent): void => {
     const direction = touchHandler.handleTouchEnd(event);
     if (direction) {
       const total = bestTraders.length - 1;
@@ -100,9 +99,8 @@
   onMount(async () => {
     loading = true;
     try {
-      const traders = await fetchTradersData();
-      bestTraders = getRandomTraders(traders);
-
+      const traders  = await fetchTradersData();
+      bestTraders    = getRandomTraders(traders);
       selectedTrader = bestTraders[0];
     }
     catch (error) {
@@ -112,6 +110,7 @@
       loading = false;
     }
 
+    // Touche event for mobile devices
     document.addEventListener('touchstart', onTouchStart, false);
     document.addEventListener('touchend', onTouchEnd, false);
   });

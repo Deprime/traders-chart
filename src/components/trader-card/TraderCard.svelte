@@ -14,7 +14,7 @@
   export let selected = false;
 
   // Methods
-  const onClick = (event: CustomEvent) => {
+  const onClick = (event: CustomEvent): void => {
     dispatch("click", event);
   }
 </script>

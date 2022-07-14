@@ -6,13 +6,11 @@
   import { Chart, LineSeries } from "svelte-lightweight-charts";
 
   // Components
-  import { Button, TraderCard } from '@/components';
+  import { Button } from '@/components';
   import ChartHeader from './ChartHeader.svelte';
 
   // Types
   import type { Trader } from './types/trader.ts';
-
-  const MOBILE_BREAKPOINT = 1180;
 
   // Props
   export let trader: Trader;
@@ -20,6 +18,7 @@
   let width = 800;
 
   // Data
+  const MOBILE_BREAKPOINT = 1180;
   const localization = {locale: "en-US"};
   let syntheticDates = [];
   let chartApi;
@@ -39,12 +38,12 @@
   $: isMobile = checkIsMobile(componentWidth);
 
   // Methods
-  const checkIsMobile = (w) => document.body.clientWidth < MOBILE_BREAKPOINT;
+  const checkIsMobile = (w): boolean => document.body.clientWidth < MOBILE_BREAKPOINT;
 
   /**
    * Generate synthetic dates
    */
-  const generateSyntheticDates = async () => {
+  const generateSyntheticDates = async (): Promise<any> => {
     const date = new Date("2019-04-01");
     const data = [];
     while (date.getMonth() <= 5) {
@@ -57,7 +56,7 @@
   /**
    * Get chart data
    */
-  const getTraderChartData = () => {
+  const getTraderChartData = (): [] => {
     if (!trader?.chart)
       return [];
 
@@ -73,7 +72,7 @@
   /**
    * On resize
    */
-  const onResize = (w = null) => {
+  const onResize = (w = null): void => {
     width = (w) ? w - 14 : width;
     setTimeout(() => {
       chartApi.timeScale().fitContent();
