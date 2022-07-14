@@ -1,0 +1,30 @@
+.button {
+  padding: 16px 32px;
+  display: inline-block;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+
+
+  &.button-primary {
+    color: #fff;
+    background-color: #8A24F3;
+    transition: all 250ms ease;
+  }
+
+  &.button-block {
+    display: block;
+    width: 100%;
+  }
+
+  &:hover {
+    background-color: #701BC8;
+  }
+
+  &:active {
+
+    background-color: #4F118F;
+  }
+}

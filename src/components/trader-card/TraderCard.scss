@@ -1,0 +1,42 @@
+.trader {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 24px;
+  border-radius: 25px;
+  transition: background-color 300ms ease-out;
+
+  .flag {
+    width: 48px;
+    height: 48px;
+    border-radius: 2em;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .summary {
+    padding: 0 0 0 16px;
+    .name {
+      font-weight: 700;
+      padding: 2px 0 6px 0;
+    }
+    .monthly-pofit {
+      color: #34B428;
+      font-weight: 500;
+    }
+  }
+
+  &.trader-selected {
+    background-color: #F5F7F9;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: 1180px) {
+  .trader {
+    padding: 0 0 20px 0;
+  }
+}

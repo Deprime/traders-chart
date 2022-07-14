@@ -1,0 +1,92 @@
+.chart {
+  box-shadow: 0 0 0 1px #E8EAED;
+  border-radius: 20px;
+  padding: 24px;
+
+  .mobile-action {
+    display: none;
+  }
+
+  .chart-header {
+    display: flex;
+    flex-direction: row;
+    padding: 0 0 20px 0;
+
+    .trader {
+      display: none;
+    }
+
+    .stats-list {
+      flex-basis: 75%;
+      padding: 0 40px 0 0;
+      display: flex;
+      flex-direction: row;
+
+      .stats-monthly-profit {
+        flex-basis: 33%;
+      }
+      .stats-total-profit {
+        flex-basis: 33%;
+      }
+      .stats-capital {
+        flex-basis: 34%;
+      }
+
+      .stats-item {
+        p {
+          font-size: 14px;
+          line-height: 20px;
+          font-weight: 400;
+          color: #0A071E66;
+        }
+        h4 {
+          font-family: 'Gotham Pro', 'Segoe UI', sans-serif;
+          font-size: 24px;
+          line-height: 36px;
+          font-weight: 600;
+          color: #080816;
+        }
+      }
+    }
+    .action {
+      flex-basis: 25%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1180px) {
+  .chart {
+    .mobile-action {
+      padding: 20px 0 0 0;
+      display: block;
+    }
+
+    .chart-header {
+      display: flex;
+      flex-direction: column;
+      padding: 0 0 20px 0;
+
+      .trader {
+        display: flex;
+        flex-basis: 100%;
+      }
+
+      .stats-list {
+        flex-basis: 100%;
+        .stats-monthly-profit {
+          flex-basis: 45%;
+        }
+        .stats-total-profit {
+          flex-basis: 45%;
+        }
+        .stats-capital {
+          display: none;
+        }
+      }
+
+      .action {
+        display: none;
+      }
+    }
+  }
+}
